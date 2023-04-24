@@ -1,0 +1,52 @@
+#outer {
+    width: 800px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    flex: auto;
+    text-align: center;
+}
+
+#boxes {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    height: 200px;
+}
+
+#blue {
+    padding: 10px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    justify-content: space-around;
+}
+
+#pink {
+    padding: 10px;
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+}
+
+#white {
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    justify-content: space-around;
+}

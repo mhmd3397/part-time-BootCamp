@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.usercard {
+    margin-left: 20%;
+    margin-right: 20%;
+    border: solid 1px gray;
+    width: 60%;
+    height: 250px;
+    position: absolute;
+    top: 50px;
+}
+
+.TopBar {
+    background-color: #17a2b8;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid 2px gray;
+    background-color: white;
+    padding: 5px;
+    position: relative;
+    left: 20px;
+    bottom: -20px;
+}
+
+.profilePicture>img {
+    width: 50px;
+    height: 50px;
+}
+
+.content {
+    margin-left: 20px;
+    position: relative;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.location {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 10px;
+    justify-content: space-between;
+}
+
+.about {
+    position: relative;
+    top: 20px;
+}
+
+.edit {
+    width: 100px;
+    display: flex;
+    position: relative;
+    top: 30px;
+    justify-content: space-between;
+}
+
+.edit>img {
+    width: 20px;
+    height: 20px;
+}
+
+.location>img {
+    height: 20px;
+}

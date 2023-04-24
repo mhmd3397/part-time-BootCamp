@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.nav {
+    height: 50px;
+    padding: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.nav-title {
+    padding: 5px;
+    display: flex;
+    max-width: 100px;
+    flex: 2;
+    justify-content: flex-start;
+}
+
+.nav-links {
+    display: flex;
+    flex: 7;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.btn {
+    display: flex;
+    flex: 2;
+    max-width: 100px;
+    justify-content: center;
+    border: 2px solid black;
+    background-color: #17a2b8;
+    color: white;
+    box-shadow: 3px 3px 1px 0px rgb(0, 0, 0);
+    padding: 5px;
+}
+
+.nav-links a {
+    padding: 3px;
+    display: flex;
+    color: white;
+    text-decoration: solid;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active {
+    color: white;
+    text-decoration: solid;
+    font-weight: bold
+}
+
+.maincontent {
+    display: flex;
+    margin-left: 15%;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-right: 15%;
+    justify-content: center;
+}
+
+.leftside {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 60%;
+    position: relative;
+    top: 10px;
+    margin: 2.5%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    border: solid 3px silver;
+    height: fit-content;
+    margin: 10px 0px 10px 0px;
+}
+
+.TopBar {
+    background-color: #17a2b8;
+    height: 25%;
+    margin-bottom: 30px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border:  solid 3px silver;
+    background-color: white;
+    padding: 4px;
+    position: relative;
+    left: 20px;
+    bottom: -20px;
+}
+
+.profilePicture>img {
+    width: 40px;
+    height: 45px;
+    align-self: center;
+    position: relative;
+    left: 5px;
+    top: 2px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.line1 {
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: space-between;
+    margin-left: 5%;
+}
+
+.about {
+    margin-left: 5%;
+}
+
+.line1 img {
+    padding-right: 4px;
+    height: 20px;
+}
+
+.rightside {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 35%;
+    position: relative;
+    top: 10px;
+    margin: 2.5%;
+}
+
+
+
+.TopBar1 {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.75);
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    color: white;
+}
+
+.circle1 {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    border:  solid 3px silver;
+    background-color: silver;
+    padding: 3px;
+    color: black;
+    text-align: center;
+    margin: 1px 5px 1px 0px;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.line h5 {
+    flex: 4;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.line img {
+    padding-right: 2px;
+    padding-left: 2px;
+    flex: 1;
+    width: 20px;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    border-top: solid 3px silver;
+    height: 20px;
+    padding: 10px;
+}

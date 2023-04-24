@@ -1,0 +1,34 @@
+* {
+    margin: 0px;
+    height: 30px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 12em;
+    justify-content: space-between;
+    padding: 3em;
+}
+#search {
+    width: 150px;
+    border:  2px solid #00d1b2;
+    border-radius: 20px;
+    background-color: white;
+    color: #00d1b2;
+}
+
+#plus {
+    width: 30px;
+    border-radius: 50%;
+    background-color: #00d1b2;
+    border: 0px;
+    color: white;
+}
+
+input {
+    width: 180px;
+    border:  2px solid black;
+    background-color: #2B78E4;
+    color: white;
+    box-shadow: 3px 3px 1px 0px rgb(0, 0, 0);
+}

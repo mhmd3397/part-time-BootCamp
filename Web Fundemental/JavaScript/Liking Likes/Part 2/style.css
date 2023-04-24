@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+
+}
+
+
+
+.Header {
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    margin: 0% 10% 5px 10%;
+}
+
+.Header h1 {
+    color: white;
+}
+
+.maincontent {
+    display: flex;
+    justify-content: space-between;
+    margin: 0% 10% 5px 10%;
+}
+
+.LeftSide {
+
+    width: 35%;
+}
+
+.RightSide {
+    width: 65%;
+    margin-left: 3%;
+}
+
+.box1 {
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px 0px 20px 0px;
+}
+
+.likesbutton {
+    padding: 5px;
+    width: 70px;
+    border: 2px solid black;
+    background-color: #ffd966;
+    font-weight: bold;
+    box-shadow: 3px 3px 1px 0px rgb(0, 0, 0);
+}
+
+.subup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0px 20px 5px;
+    width: 100%;
+}
+
+.subdown {
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.likesnumber {
+    display: flex;
+}
+
+.YourFeed {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+img {
+    width: 50px;
+    padding-bottom: 20px;
+}

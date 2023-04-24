@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="nav">
+            <h1 class="nav-title">Profile</h1>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">My Profile</a></li>
+                <li><a href="#">Find Connections</a></li>
+            </ul>
+            <button class="btn">Sign Out</button></li>
+        </div>
+    </div>
+    <div class="maincontent">
+        <div class="leftside">
+            <div class="box">
+                <div class="TopBar">
+                    <div class="circle">
+                        <div class="profilePicture">
+                            <img src="images/MyPhoto.png" alt="Profile Picture">
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="line1">
+                        <h2 id="name">Mohammed Eleyan</h2>
+                    </div>
+                    <div class="line1">
+                        <img src="icons\map-marker.png" alt="map-marker">
+                        <h5>Palestine</h5>
+                    </div>
+                    <div class="about">
+                        <p>Developer | Engineer | Problem Solver</p>
+                        <p>Master of shadows and the Internet!</p>
+                    </div>
+                    <div class="line1">
+                        <img src="icons\gear.png" alt="gear icon">
+                        <a href="#" onclick=edit(this)>edit profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="TopBar1">
+                    <h5>Education</h5>
+                </div>
+                <div class="content">
+                    <p>Coding Dojo - Full Stack Bootcamp</p>
+                    <p>April 2013 - August 2023</p>
+                    <p>Triple black belt in Python, Mern, Css, ....</p>
+                </div>
+            </div>
+        </div>
+        <div class="rightside">
+            <div class="box" id="ConnectionRequestsBox">
+                <div class="TopBar1">
+                    <div class="circle1">
+                        <h5 id="ConnectionRequestsNum">2</h5>
+                    </div>
+                    <h5>Connection Requests</h5>
+                </div>
+                <div class="content">
+                    <div class="line" id="line1">
+                        <img src="images/todd-s.jpg" alt="person">
+                        <p>Todd S</p>
+                        <img src="icons/accept-circle.png" alt="accept-circle" onclick="accept1(this)">
+                        <img src="icons/close-circle.png" alt="close-circle" onclick="deny1(this)">
+                    </div>
+                    <div class="line" id="line2">
+                        <img src="images/phil-s.jpg" alt="person">
+                        <p>Phil S</p>
+                        <img src="icons/accept-circle.png" alt="accept-circle" onclick="accept2(this)">
+                        <img src="icons/close-circle.png" alt="close-circle" onclick="deny2(this)">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="TopBar1">
+                    <div class="circle1">
+                        <h5 id="YourConnectionsNum">495</h5>
+                    </div>
+                    <h5>Your Connections</h5>
+                </div>
+                <div class="content">
+                    <div class="line">
+                        <img src="images/adrien-s.jpg" alt="person">
+                        <h5>Adrien S</h5>
+                    </div>
+                    <div class="line">
+                        <img src="images/anne-s.jpg" alt="person">
+                        <h5>Anne S</h5>
+                    </div>
+                    <div class="line">
+                        <img src="images/alayne-s.jpg" alt="person">
+                        <h5>Alayne S</h5>
+                    </div>
+                    <div class="line">
+                        <img src="images/arry-s.jpg" alt="person">
+                        <h5>Arry S</h5>
+                    </div>
+                    <div class="box1">
+                        <a href="#">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

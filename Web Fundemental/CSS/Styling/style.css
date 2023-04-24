@@ -1,0 +1,28 @@
+* {
+    font-style: oblique;
+}
+
+h1 {
+    background-color: black;
+}
+
+#My {
+    color: aliceblue;
+}
+
+#Cloud {
+    color: aqua;
+}
+
+h2 {
+    background-color: blueviolet;
+    color: aliceblue;
+    text-align: center;
+}
+
+h3 {
+    background-color: skyblue;
+    color: blueviolet;
+    text-decoration: underline;
+    text-align: right;
+}
