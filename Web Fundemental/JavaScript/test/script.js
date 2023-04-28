@@ -8,3 +8,8 @@ function out(element) {
     element.style.backgroundColor = "silver"; 
 }
 
+
+
+
+
+
