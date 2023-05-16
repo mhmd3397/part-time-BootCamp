@@ -1,0 +1,34 @@
+pip list
+-shows what pip installed in this current environment.
+
+
+deactivate (This will deactivate your virtual environment)
+-it deactivate the current environment (it will exit from environment)
+
+
+pip3 list (How is the result different from when you ran pip list with the virtualenv activated? Hint, you should not have as many things listed when the virtualenv is deactivated. If your results are the same, go back and figure out what went wrong.)
+-go back before the virtual env was there, back to the orginal virtualenv and showed more the installed packages.
+
+
+source myEnvironments/py3Env/bin/activate (Adjust the path as needed to re-activate the virtualenv; for windows call myEnvironments/py3Env/Scripts/activate)
+-it will activate the env 
+
+
+pip install Django==1.11.9 (We know you already ran this one. What information do you see returned in terminal after this command?)
+-installing and downloading Django in this current virtualenv.
+
+
+pip freeze (What's the difference between freeze and list?)
+-doesn't list all the package like the pip list but shows modules installed.
+
+
+requirements.txt. What do you see when you ls? What's inside this file?
+-the requirements system of the updated version
+
+
+pip uninstall Django
+-it will uninstall Django
+
+
+pip show Django
+-it will not shown because its not installed
