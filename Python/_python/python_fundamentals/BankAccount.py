@@ -1,3 +1,8 @@
+'''
+This module is for assignment Bankaccount  in Coding Dojo
+'''
+
+
 class BankAccount:
     def __init__(self, int_rate=0.16, balance=-0):
         self.int_rate = int_rate
@@ -24,10 +29,11 @@ class BankAccount:
         return self
 
 
-Mohammed = BankAccount(balance=500)
-Ahmed = BankAccount(0.05, 50)
+mohammad_account = BankAccount(balance=500)
+ahmad_account = BankAccount(0.05, 50)
 
-Mohammed.deposit(50).deposit(200).deposit(300).withdraw(250).yield_interest().display_account_info()
+mohammad_account.deposit(50).deposit(200).deposit(
+    300).withdraw(250).yield_interest().display_account_info()
 
-
-Ahmed.deposit(100).deposit(100).withdraw(125).withdraw(25).withdraw(50).withdraw(100).yield_interest().display_account_info()
+ahmad_account.deposit(100).deposit(100).withdraw(125).withdraw(25).withdraw(
+    50).withdraw(100).yield_interest().display_account_info()

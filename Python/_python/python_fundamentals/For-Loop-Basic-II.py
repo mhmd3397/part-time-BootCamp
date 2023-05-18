@@ -107,3 +107,13 @@ def reverse(list):
         reverse_list.append(list[i])
     return reverse_list
 print(reverse([37, 2, 1, -9, -7, 3]))
+
+
+def reverse1(list):
+    
+    for i in range(len(list)//2):
+        temp=list[len(list)-i-1]
+        list[len(list)-i-1]= list[i]
+        list[i]=temp
+    return list
+print(reverse1([37, 2, 1, -9, -7, 3]))
