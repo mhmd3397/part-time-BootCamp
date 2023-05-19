@@ -1,3 +1,6 @@
-dog = ('Bruce', 'cocker spaniel', 19, False)
-print(dog[0])		# output: Bruce
-dog[1] = 'dachshund'	# ERROR: cannot be modified ('tuple' object does not support item assignment)
+# import the library
+import urllib.request
+response = urllib.request.urlopen("http://www.codingdojo.com")
+html = response.read()
+print(html)
+
