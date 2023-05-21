@@ -24,14 +24,16 @@ def index1(x=int(8), y=int(8)):
 
 
 @app.route('/<y>')
-def index2(y,x=int(8)):
+def index2(y, x=int(8)):
     return render_template("index.html", x=int(x), y=int(y))
 
 
 # http://localhost:5000/(x)/(y) - should display x by y checkerboard.
-#  For example, http://localhost:5000/10/10 should display 10 by 10 checkerboard.
+#  For example,
+#  http://localhost:5000/10/10 should display 10 by 10 checkerboard.
 #  Before you pass x or y to Jinja,
-#  please remember to convert it to integer first (so that you can use x or y in a for loop)
+#  please remember to convert it to integer first
+#  (so that you can use x or y in a for loop)
 
 
 @app.route('/<x>/<y>')
