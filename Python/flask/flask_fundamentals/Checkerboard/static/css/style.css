@@ -1,0 +1,20 @@
+.box1{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+.box2{
+    background-color: black;
+    height: 100px;
+    width: 100px;
+}
+.row1{
+    display: flex;
+}
+.row2{
+    display: flex;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
