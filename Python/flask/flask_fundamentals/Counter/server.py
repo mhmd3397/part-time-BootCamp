@@ -9,7 +9,7 @@ def index():
         session["counter"] = 0
     else:
         session["counter"] += 1
-    return render_template("index.html", counter=session["counter"])
+    return render_template("index.html")
 
 
 @app.route('/counter', methods=['POST'])
@@ -18,6 +18,8 @@ def counter():
         session["counter"] += 1
     elif request.form["button"] == 'reset':
         session["counter"] = 0
+    elif request.form["button"] == 'custom':
+        session["counter"] += int(request.form["increment"])-1
     return redirect('/')
 
 

@@ -18,6 +18,8 @@
     <h1>Counter</h1>
     <h3>counter = {{session['counter']}}</h3>
     <form action="/counter" method="POST">
+        <input type="number" name="increment" placeholder="Enter increment value">
+        <button type="submit" name="button" value="custom">Add Custom</button>
         <button type="submit" name="button" value="add">add 2</button>
         <button type="submit" name="button" value="reset">reset</button>
     </form>
