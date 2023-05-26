@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,17 @@
         .too-low {
             background-color: #FFCCCC;
         }
+
         .too-high {
             background-color: #FFCCCC;
         }
+
         .correct {
             background-color: #C8E6C9;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Great Number Game</h1>
@@ -26,7 +30,8 @@
             <button type="submit" class="btn btn-primary mt-2">Guess</button>
         </form>
         {% if result %}
-        <div class="mt-4 alert {% if result == 'Too low!' %}too-low{% elif result == 'Too high!' %}too-high{% else %}correct{% endif %}">
+        <div
+            class="mt-4 alert {% if result == 'Too low!' %}too-low{% elif result == 'Too high!' %}too-high{% else %}correct{% endif %}">
             {{ result }}
         </div>
         {% endif %}
@@ -40,4 +45,5 @@
         {% endif %}
     </div>
 </body>
+
 </html>
