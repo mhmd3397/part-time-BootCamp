@@ -1,3 +1,10 @@
+'''
+This module is for assignment Ninja Gold in Coding Dojo
+Mohammed Eleyan
+26-05-2023
+'''
+
+
 from flask import Flask, render_template, request, redirect, session
 import random
 from datetime import datetime
