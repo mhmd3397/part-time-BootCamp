@@ -1,0 +1,18 @@
+double click on schema or we write use (schema's name)
+
+SELECT * FROM cities;
+
+SELECT id, name, country_code FROM cities;
+
+SELECT * FROM cities WHERE name LIKE "%e";
+
+INSERT INTO cities (name,id)
+VALUES('Jenin',500);
+
+UPDATE cities SET name = 'nablus'
+WHERE id = '500'
+
+
+SELECT CONCAT('city name :',  ' ', name, ' ', 'country code :' country_code) AS city_name_with_country_code FROM cities
+
+SELECT LENGTH(name) AS city_name FROM cities;
