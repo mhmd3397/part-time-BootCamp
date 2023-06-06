@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
+    <title>Dojo Survey Index</title>
+</head>
+
+<body>
+    <form class="box" action='/results' method='POST'>
+        {% csrf_token %}
+        <div>
+            <label>Your name:</label>
+            <input type="text" placeholder="Your Name" name='name'>
+        </div>
+        <div>
+            <label>Dojo Location:</label>
+            <select name='location'>
+                <option>Ramallah</option>
+                <option>Nablus</option>
+                <option>Jenin</option>
+                <option>Jerusalem</option>
+                <option>Hebron</option>
+            </select>
+        </div>
+        <div>
+            <label>Favorite Language:</label>
+            <select name='language'>
+                <option>Python</option>
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>JavaScript</option>
+                <option>C++</option>
+            </select>
+        </div>
+        <label for="exampleFormControlTextarea1">Comment (optional):</label>
+        <textarea id="exampleFormControlTextarea1" rows="5" name='textarea'></textarea>
+        <button type="submit" name='submit' value='create_user'>Button</button>
+    </form>
+</body>
+
+</html>

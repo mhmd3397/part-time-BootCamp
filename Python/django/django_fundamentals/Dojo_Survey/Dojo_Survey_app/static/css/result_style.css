@@ -1,0 +1,33 @@
+* {
+    font-weight: bolder;
+    margin: 5px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    width: 70%;
+    max-width: 500px;
+    margin: 10% auto 0 auto;
+    border: 3px solid black;
+}
+
+.box div {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    cursor: pointer;
+    width: 120px;
+    align-self: flex-end;
+    padding: 5px;
+    background-color: #76a5af;
+    box-shadow: 5px 5px black;
+    color: white;
+}
+
+h1 {
+    text-decoration: underline;
+}

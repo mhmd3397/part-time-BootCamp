@@ -1,0 +1,48 @@
+* {
+    font-weight: bold;
+}
+
+
+.box,
+select,
+input,
+textarea,
+button {
+    border: 3px solid black;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    width: 70%;
+    max-width: 500px;
+    margin: 10% auto 0 auto;
+}
+
+.box div {
+    display: flex;
+    justify-content: space-between;
+}
+
+input,
+select {
+    min-width: 280px;
+    max-width: 280px;
+    min-height: 35px;
+    max-height: 35px;
+}
+
+.box * {
+    margin: 5px;
+}
+
+button {
+    cursor: pointer;
+    width: 100px;
+    align-self: flex-end;
+    padding: 5px;
+    background-color: #76a5af;
+    box-shadow: 4px 4px black;
+    color: white;
+}
