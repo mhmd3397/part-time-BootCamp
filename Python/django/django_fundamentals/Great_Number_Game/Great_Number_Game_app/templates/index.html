@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .too-low {
+            background-color: #FFCCCC;
+        }
+
+        .too-high {
+            background-color: #FFCCCC;
+        }
+
+        .correct {
+            background-color: #C8E6C9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Great Number Game</h1>
+        <p>Guess a number between 1 and 100:</p>
+        <form action="/guess" method="POST">
+            {% csrf_token %}
+            <input type="number" name="guess" class="form-control" required>
+            <button type="submit" class="btn btn-primary mt-2">Guess</button>
+        </form>
+        {% if result %}
+        <div
+            class="mt-4 alert {% if result == 'Too low!' %}
+            too-low{% elif result == 'Too high!' %}
+            too-high{% else %}correct{% endif %}">
+            {{ result }}
+        </div>
+        {% endif %}
+        <div class="mt-4">
+            <span class="font-weight-bold">Guesses: </span> {{ count }}
+        </div>
+        {% if success %}
+        <form action="/play_again" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary mt-2">Play Again</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+
+</html>
