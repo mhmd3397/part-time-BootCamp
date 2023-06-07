@@ -9,7 +9,7 @@ def index(request):
         request.session['success'] = False
         request.session['result'] = ''
 
-    print("Correct number:", request.session['number'])
+    print("Correct number:", int(request.session['number'])/3.3)
 
     used_in_templates = {
         'result': request.session['result'],
