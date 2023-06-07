@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: aquamarine;
+}
+
+button {
+    width: fit-content;
+    height: 40px;
+    font-size: x-large;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    cursor: pointer;
+}
