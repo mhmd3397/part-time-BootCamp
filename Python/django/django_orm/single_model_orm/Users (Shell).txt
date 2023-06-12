@@ -1,0 +1,75 @@
+python manage.py shell # run the shell
+
+>>> from users_app.models import *
+
+User.objects.create(first_name="Mohammed", last_name="Eleyan", email_address="1142456@student.birzeit.edu", age=26)  # <User: User object (1)>
+
+User.objects.create(first_name="Ahmed", last_name="Eleyan", email_address="1142456@student.birzeit.edu", age=26)   # <User: User object (2)>
+
+User.objects.create(first_name="Rashed", last_name="Eleyan", email_address="1142456@student.birzeit.edu", age=40)	# <User: User object (3)>
+
+users = User.objects.all()
+for user in users:
+    print(user.first_name, user.last_name, user.email_address, user.age)
+
+>>> users = User.objects.all()
+>>> for user in users:
+...     print(user.first_name, user.last_name, user.email_address, 
+user.age)
+... 
+Mohammed Eleyan 1142456@student.birzeit.edu 26
+Ahmed Eleyan 1142456@student.birzeit.edu 26
+Rashed Eleyan 1142456@student.birzeit.edu 40
+
+last_user = User.objects.last()
+print(last_user.first_name, last_user.last_name, last_user.email_address, last_user.age)
+
+>>> last_user = User.objects.last()
+>>> print(last_user.first_name, last_user.last_name, last_user.email_address, last_user.age)
+Rashed Eleyan 1142456@student.birzeit.edu 40
+
+first_user = User.objects.first()
+print(first_user.first_name, first_user.last_name, first_user.email_address, first_user.age)
+
+>>> first_user = User.objects.first()
+>>> print(first_user.first_name, first_user.last_name, first_user.email_address, first_user.age)
+Mohammed Eleyan 1142456@student.birzeit.edu 26
+
+user = User.objects.get(id=3)
+user.last_name = 'Pancakes'
+user.save()
+
+>>> user = User.objects.get(id=3)
+>>> user.last_name = 'Pancakes'
+>>> user.save()
+
+user = User.objects.get(id=2)
+user.delete()
+
+>> user = User.objects.get(id=2)
+>>> user.delete()
+(1, {'users_app.User': 1})
+
+users = User.objects.order_by('first_name')
+for user in users:
+    print(user.first_name, user.last_name, user.email_address, user.age)
+
+>>> users = User.objects.order_by('first_name')
+>>> for user in users:
+...     print(user.first_name, user.last_name, user.email_address, 
+user.age)
+... 
+Mohammed Eleyan 1142456@student.birzeit.edu 26
+Rashed Pancakes 1142456@student.birzeit.edu 40
+
+users = User.objects.order_by('-first_name')
+for user in users:
+    print(user.first_name, user.last_name, user.email_address, user.age)
+
+>>> users = User.objects.order_by('-first_name')
+>>> for user in users:
+...     print(user.first_name, user.last_name, user.email_address, 
+user.age)
+... 
+Rashed Pancakes 1142456@student.birzeit.edu 40
+Mohammed Eleyan 1142456@student.birzeit.edu 26
