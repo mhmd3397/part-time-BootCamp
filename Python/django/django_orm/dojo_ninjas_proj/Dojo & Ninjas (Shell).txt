@@ -1,0 +1,122 @@
+dojo_ninjas_proj>python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0001_initial.py
+    - Create model Dojo
+    - Create model Ninja
+
+dojo_ninjas_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying dojo_ninjas_app.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+dojo_ninjas_proj>python manage.py shell
+Python 3.11.3 (tags/v3.11.3:f3909b8, Apr  4 2023, 23:49:59) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojo_ninjas_app.models import Dojo, Ninja
+>>> 
+>>> 
+>>> dojo1 = Dojo.objects.create(name="Dojo 1", city="City 1", state="State 1")
+>>> dojo2 = Dojo.objects.create(name="Dojo 2", city="City 2", state="State 2")
+>>> dojo3 = Dojo.objects.create(name="Dojo 3", city="City 3", state="State 3")
+>>> 
+>>> Dojo.obgects.filter(id=1,2,3).delete()
+  File "<console>", line 1
+    Dojo.obgects.filter(id=1,2,3).delete()
+                                ^
+SyntaxError: positional argument follows keyword argument       
+>>> Dojo.obgects.filter(id=1,id=2,id=3).delete() 
+  File "<console>", line 1
+SyntaxError: keyword argument repeated: id
+>>> Dojo.obgects.get(id=1,id=2,id=3).delete()    
+  File "<console>", line 1
+SyntaxError: keyword argument repeated: id
+>>> Dojo.obgects.filter(id=3).delete()           
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Dojo' has no attribute 'obgects'   
+>>> Dojo.obgects.get(id=3).delete()    
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Dojo' has no attribute 'obgects'   
+>>> dojo1
+<Dojo: Dojo object (1)>
+>>> dojo1.delete()
+(1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+>>> dojo2.delete() 
+(1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+>>> dojo3.delete() 
+(1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+>>> dojo4 = Dojo.objects.create(name="Dojo 4", city="City 4", state="State 4")
+>>> dojo5 = Dojo.objects.create(name="Dojo 5", city="City 5", state="State 5")
+>>> dojo6 = Dojo.objects.create(name="Dojo 6", city="City 6", state="State 6")
+>>> ninja1 = Ninja.objects.create(first_name="Ninja 1", last_name="Last 1", dojo=dojo4)
+>>> ninja2 = Ninja.objects.create(first_name="Ninja 2", last_name="Last 2", dojo=dojo4)
+>>> ninja3 = Ninja.objects.create(first_name="Ninja 3", last_name="Last 3", dojo=dojo4)
+>>> ninja4 = Ninja.objects.create(first_name="Ninja 4", last_name="Last 4", dojo=dojo5)
+>>> ninja5 = Ninja.objects.create(first_name="Ninja 5", last_name="Last 5", dojo=dojo5)
+>>> ninja6 = Ninja.objects.create(first_name="Ninja 6", last_name="Last 6", dojo=dojo5)
+>>> ninja7 = Ninja.objects.create(first_name="Ninja 7", last_name="Last 7", dojo=dojo6)
+>>> ninja8 = Ninja.objects.create(first_name="Ninja 8", last_name="Last 8", dojo=dojo6)
+>>> ninja9 = Ninja.objects.create(first_name="Ninja 9", last_name="Last 9", dojo=dojo6)
+>>> ninjas_first_dojo = dojo4.ninjas.all()
+>>> 
+>>> ninjas_first_dojo.first_name          
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'first_name' 
+>>> for ninja in ninjas_first_dojo:
+... print(ninja.first_name)
+  File "<console>", line 2
+    print(ninja.first_name)
+    ^^^^^
+IndentationError: expected an indented block after 'for' statement on line 1
+>>> for ninja in ninjas_first_dojo:
+...     print(ninja.first_name)
+...
+Ninja 1
+Ninja 2
+Ninja 3
+>>> ninjas_last_dojo = dojo6.ninjas.all()
+>>> 
+>>> last_ninja = Ninja.objects.last()
+>>> last_ninja_dojo = last_ninja.dojo
+>>> python manage.py makemigrations
+  File "<console>", line 1
+    python manage.py makemigrations
+           ^^^^^^
+SyntaxError: invalid syntax
+>>>
+KeyboardInterrupt
+>>> exit()
+
+dojo_ninjas_proj>python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0002_dojo_desc.py
+    - Add field desc to dojo
+
+dojo_ninjas_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0002_dojo_desc... OK
+
+dojo_ninjas_proj>
