@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Authors</title>
+    {% load static %}
+    <!-- linking a css style sheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h1>Authors</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Notes</th>
+                <th>Books</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+            <tr>
+                <td>{{ author.first_name }}</td>
+                <td>{{ author.last_name }}</td>
+                <td>{{ author.notes }}</td>
+                <td>
+                    {% for book in author.books.all %}
+                    {{ book.title }}<br>
+                    {% endfor %}
+                </td>
+                <td><a href="{% url 'view-author' author.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'create-author' %}">Create Author</a>
+    <a href="{% url 'index' %}">Back to Home</a>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Book</title>
+    {% load static %}
+    <!-- linking a css style sheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h1>Edit Book</h1>
+    <form method="POST" action="{% url 'edit-book' book.id %}">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{ book.title }}"><br>
+        <label for="desc">Description:</label>
+        <textarea id="desc" name="desc">{{ book.desc }}</textarea><br>
+        <label for="authors">Authors:</label>
+        <select id="authors" name="authors" multiple required>
+            {% for author in authors %}
+            <option value="{{ author.id }}" {% if author in book.authors.all %}selected{% endif %}>{{ author.first_name }} {{ author.last_name }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'view-book' book.id %}">Back to View Book</a>
+    <a href="{% url 'books' %}">Back to Books</a>
+    <a href="{% url 'index' %}">Back to Home</a>
+</body>
+
+</html>
