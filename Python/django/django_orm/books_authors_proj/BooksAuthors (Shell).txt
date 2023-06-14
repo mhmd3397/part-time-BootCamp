@@ -1,0 +1,144 @@
+Create the Book class model
+
+Create the Author class model
+
+from django.db import models
+
+# Create your models here.
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    desc = models.TextField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Author(models.Model):
+    first_name = models.CharField(max_length=45)
+    last_name = models.CharField(max_length=45)
+    books = models.ManyToManyField(Book, related_name="authors")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+Create and run the migration files to create the tables in your database
+
+
+Create a .txt file where you'll save each of your queries from below
+
+Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby
+
+(djangoPyEnv) C:\Users\mhmd2\Desktop\AXOS ACADEMY\part-time-BootCamp\Python\django\django_orm\books_authors_proj>python manage.py shell
+Python 3.11.3 (tags/v3.11.3:f3909b8, Apr  4 2023, 23:49:59) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from books_authors_app.models import Book, Author
+>>> Book.objects.create(title="C Sharp")
+<Book: Book object (1)>
+>>> Book.objects.create(title="Java")
+<Book: Book object (2)>
+>>> Book.objects.create(title="Python")
+<Book: Book object (3)>
+>>> Book.objects.create(title="PHP")
+<Book: Book object (4)>
+>>> Book.objects.create(title="Ruby")
+<Book: Book object (5)>
+
+Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+
+>>> Author.objects.create(first_name="Jane", last_name="Austen")
+<Author: Author object (1)>
+>>> Author.objects.create(first_name="Emily", last_name="Dickinson")
+<Author: Author object (2)>
+>>> Author.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+<Author: Author object (3)>
+>>> Author.objects.create(first_name="William", last_name="Shakespeare")
+<Author: Author object (4)>
+>>> Author.objects.create(first_name="Lau", last_name="Tzu")
+<Author: Author object (5)>
+
+Add a new text field in the authors table called 'notes'.
+
+notes = models.TextField(default='No notes')
+
+Create and run the migration files to update the table in your database.
+
+(djangoPyEnv) C:\Users\mhmd2\Desktop\AXOS ACADEMY\part-time-BootCamp\Python\django\django_orm\books_authors_proj>python manage.py makemigrations
+Migrations for 'books_authors_app':
+  books_authors_app\migrations\0002_author_notes.py
+    - Add field notes to author
+
+(djangoPyEnv) C:\Users\mhmd2\Desktop\AXOS ACADEMY\part-time-BootCamp\Python\django\django_orm\books_authors_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, books_authors_app, contenttypes, sessions
+Running migrations:
+  Applying books_authors_app.0002_author_notes... OK
+
+Query: Change the name of the C Sharp book to C#
+
+>>> from books_authors_app.models import Book, Author
+>>> book = Book.objects.get(title="C Sharp")
+>>> book.title = "C#"
+>>> book.save()
+>>>
+
+Query: Change the first name of the 4th author to Bill
+
+>>> author = Author.objects.get(id=4)
+>>> author.first_name = "Bill"
+>>> author.save()
+
+Query: Assign the first author to the first 2 books
+
+>>> author1 = Author.objects.get(id=1)
+>>> book1 = Book.objects.get(id=1)
+>>> book2 = Book.objects.get(id=2)
+>>> author1.books.add(book1, book2)
+
+Query: Assign the second author to the first 3 books
+
+>>> author2 = Author.objects.get(id=2)
+>>> book3 = Book.objects.get(id=3)
+>>> author2.books.add(book1, book2, book3)
+
+Query: Assign the third author to the first 4 books
+
+>>> author3 = Author.objects.get(id=3)
+>>> book4 = Book.objects.get(id=4)
+>>> author3.books.add(book1, book2, book3, book4)
+
+Query: Assign the fourth author to the first 5 books (or in other words, all the books)
+
+>>> author4 = Author.objects.get(id=4)
+>>> book5 = Book.objects.get(id=5)
+>>> author4.books.add(book1, book2, book3, book4, book5)
+
+Query: Retrieve all the authors for the 3rd book
+
+>>> book3 = Book.objects.get(id=3)
+>>> authors = book3.authors.all()
+
+Query: Remove the first author of the 3rd book
+
+>>> book3 = Book.objects.get(id=3)   
+>>> author_to_remove = book3.authors.first()
+>>> book3.authors.remove(author_to_remove)
+
+Query: Add the 5th author as one of the authors of the 2nd book
+
+>>> book2 = Book.objects.get(id=2)
+>>> author5 = Author.objects.get(id=5)
+>>> book2.authors.add(author5)
+
+Query: Find all the books that the 3rd author is part of
+
+>>> author3 = Author.objects.get(id=3)
+>>> books = author3.books.all()
+
+Query: Find all the authors that contributed to the 5th book
+
+>>> book5 = Book.objects.get(id=5)
+>>> authors = book5.authors.all()
+
+Submit your .txt file that contains all the queries you ran in the shell
