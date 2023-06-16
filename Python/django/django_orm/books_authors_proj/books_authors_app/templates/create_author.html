@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Author</title>
-    {% load static %}
-    <!-- linking a css style sheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <h1>Create Author</h1>
-    <form method="POST" action="{% url 'create-author' %}">
-        {% csrf_token %}
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required><br>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required><br>
-        <label for="notes">Notes:</label>
-        <textarea id="notes" name="notes"></textarea><br>
-        <label for="books">Books:</label>
-        <select id="books" name="books" multiple required>
-            {% for book in books %}
-            <option value="{{ book.id }}">{{ book.title }}</option>
-            {% endfor %}
-        </select><br>
-        <button type="submit">Create</button>
-    </form>
-    <a href="{% url 'authors' %}">Back to Authors</a>
-    <a href="{% url 'index' %}">Back to Home</a>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Create Author</title>
+        {% load static %}
+        <!-- linking a css style sheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h1>Create Author</h1>
+        <form method="POST" action="{% url 'create-author' %}">
+            {% csrf_token %}
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+            <br>
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes"></textarea>
+            <br>
+            <label for="books">Books:</label>
+            <select id="books" name="books" multiple required>
+                {% for book in books %}<option value="{{ book.id }}">{{ book.title }}</option>{% endfor %}
+            </select>
+            <br>
+            <button type="submit">Create</button>
+        </form>
+        <a href="{% url 'authors' %}">Back to Authors</a>
+        <a href="{% url 'index' %}">Back to Home</a>
+    </body>
 </html>

@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Counter</title>
-    {% load static %}
-    <!-- based on the folder structure on the right -->
-    <!-- linking a css style sheet -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"></head>
-
-<body>
-    <h1>Counter</h1>
-    <h3>counter = {{request.session.counter}}</h3>
-    <form action="/counter" method="POST">
-        {% csrf_token %}
-        <input type="number" name="increment" placeholder="Enter increment value">
-        <button type="submit" name="button" value="custom">Add Custom</button>
-        <button type="submit" name="button" value="add">add 2</button>
-        <button type="submit" name="button" value="reset">reset</button>
-    </form>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Counter</title>
+        {% load static %}
+        <!-- based on the folder structure on the right -->
+        <!-- linking a css style sheet -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h1>Counter</h1>
+        <h3>counter = {{ request.session.counter }}</h3>
+        <form action="/counter" method="POST">
+            {% csrf_token %}
+            <input type="number" name="increment" placeholder="Enter increment value">
+            <button type="submit" name="button" value="custom">Add Custom</button>
+            <button type="submit" name="button" value="add">add 2</button>
+            <button type="submit" name="button" value="reset">reset</button>
+        </form>
+    </body>
 </html>

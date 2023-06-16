@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Time Display</title>
-    <style>
+    <head>
+        <title>Time Display</title>
+        <style>
         .container {
             width: 70%;
             margin: 0 auto;
@@ -29,15 +29,15 @@
             color: #666;
             text-align: center;
         }
-    </style>
-</head>
-<body>
-    {% csrf_token %}
-    <div class="container">
-        <h2>The current time and date:</h2>
-        <div class="content-box">
-            <h1>{{ time }}</h1>
+        </style>
+    </head>
+    <body>
+        {% csrf_token %}
+        <div class="container">
+            <h2>The current time and date:</h2>
+            <div class="content-box">
+                <h1>{{ time }}</h1>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

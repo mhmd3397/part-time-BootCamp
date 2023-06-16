@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Author</title>
-    {% load static %}
-    <!-- linking a css style sheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <h1>View Author</h1>
-    <h2>{{ author.first_name }} {{ author.last_name }}</h2>
-    <p>Notes: {{ author.notes }}</p>
-    <h3>Books:</h3>
-    <ul>
-        {% for book in books %}
-        <li>{{ book.title }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'edit-author' author.id %}">Edit Author</a>
-    <a href="{% url 'delete-author' author.id %}">Delete Author</a>
-    <a href="{% url 'authors' %}">Back to Authors</a>
-    <a href="{% url 'index' %}">Back to Home</a>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>View Author</title>
+        {% load static %}
+        <!-- linking a css style sheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h1>View Author</h1>
+        <h2>{{ author.first_name }} {{ author.last_name }}</h2>
+        <p>Notes: {{ author.notes }}</p>
+        <h3>Books:</h3>
+        <ul>
+            {% for book in books %}<li>{{ book.title }}</li>{% endfor %}
+        </ul>
+        <a href="{% url 'edit-author' author.id %}">Edit Author</a>
+        <a href="{% url 'delete-author' author.id %}">Delete Author</a>
+        <a href="{% url 'authors' %}">Back to Authors</a>
+        <a href="{% url 'index' %}">Back to Home</a>
+    </body>
 </html>

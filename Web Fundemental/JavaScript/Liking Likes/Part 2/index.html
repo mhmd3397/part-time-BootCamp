@@ -1,71 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Likes</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <div class="Header">
-        <h1>Network</h1>
-    </div>
-    <div class="YourFeed">
-        <h2>Your Feed</h2>
-    </div>
-    <div class="maincontent">
-        <div class="LeftSide">
-            <div class="box1">
-                <img src="/Web Fundemental/JavaScript/Liking Likes/user-circle.png" alt="avatar">
-                <a href="#">Add an avatar</a>
-                <h4>James Doe</h4>
+    <head>
+        <meta charset="UTF-8">
+        <title>Likes</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="Header">
+            <h1>Network</h1>
+        </div>
+        <div class="YourFeed">
+            <h2>Your Feed</h2>
+        </div>
+        <div class="maincontent">
+            <div class="LeftSide">
+                <div class="box1">
+                    <img src="/Web Fundemental/JavaScript/Liking Likes/user-circle.png"
+                         alt="avatar">
+                    <a href="#">Add an avatar</a>
+                    <h4>James Doe</h4>
+                </div>
+            </div>
+            <div class="RightSide">
+                <div class="box1">
+                    <div class="subup">
+                        <h2>Neil M</h2>
+                        <div class="likesnumber">
+                            <h4 id="change-number0">9</h4>
+                            <h4>like(s)</h4>
+                        </div>
+                        <button class="likesbutton" onclick=like0(this)>Like</button>
+                    </div>
+                    <div class="subdown">
+                        <h4>
+                            I just set up this new discord bot, let me know what you all think <a href="#">link</a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="box1">
+                    <div class="subup">
+                        <h2>Nichole K</h2>
+                        <div class="likesnumber">
+                            <h4 id="change-number1">12</h4>
+                            <h4>like(s)</h4>
+                        </div>
+                        <button class="likesbutton" onclick=like1(this)>Like</button>
+                    </div>
+                    <div class="subdown">
+                        <h4>
+                            just finished my <a href="#">next comic</a>, check it out.
+                        </h4>
+                    </div>
+                </div>
+                <div class="box1">
+                    <div class="subup">
+                        <h2>Jim R</h2>
+                        <div class="likesnumber">
+                            <h4 id="change-number2">9</h4>
+                            <h4>like(s)</h4>
+                        </div>
+                        <button class="likesbutton" onclick=like2(this)>Like</button>
+                    </div>
+                    <div class="subdown">
+                        <h4>
+                            I can't stop listening to the <a href="#">new album</a>. who else is liking it?
+                        </h4>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="RightSide">
-            <div class="box1">
-                <div class="subup">
-                    <h2>Neil M</h2>
-                    <div class="likesnumber">
-                        <h4 id="change-number0">9</h4>
-                        <h4>like(s)</h4>
-                    </div>
-                    <button class="likesbutton" onclick=like0(this)>Like</button>
-                </div>
-                <div class="subdown">
-                    <h4>I just set up this new discord bot, let me know what you all think <a href="#">link</a></h4>
-                </div>
-            </div>
-            <div class="box1">
-                <div class="subup">
-                    <h2>Nichole K</h2>
-                    <div class="likesnumber">
-                        <h4 id="change-number1">12</h4>
-                        <h4>like(s)</h4>
-                    </div>
-                    <button class="likesbutton" onclick=like1(this)>Like</button>
-                </div>
-                <div class="subdown">
-                    <h4>just finished my <a href="#">next comic</a>, check it out.</h4>
-                </div>
-            </div>
-            <div class="box1">
-                <div class="subup">
-                    <h2>Jim R</h2>
-                    <div class="likesnumber">
-                        <h4 id="change-number2">9</h4>
-                        <h4>like(s)</h4>
-                    </div>
-                    <button class="likesbutton" onclick=like2(this)>Like</button>
-                </div>
-                <div class="subdown">
-                    <h4>I can't stop listening to the <a href="#">new album</a>. who else is liking it?</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-
+        <script src="script.js"></script>
+    </body>
 </html>

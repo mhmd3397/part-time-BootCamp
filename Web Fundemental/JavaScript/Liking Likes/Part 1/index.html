@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Likes</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <div class="maincontent">
-        <div class="LeftSide">
-            <div class="box">
-                <div class="subup">
-                    <h2>Some User</h2>
-                    <div class="likesnumber">
-                        <h4 id="change-number">1</h4>
-                        <h4>like(s)</h4>
+    <head>
+        <meta charset="UTF-8">
+        <title>Likes</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="maincontent">
+            <div class="LeftSide">
+                <div class="box">
+                    <div class="subup">
+                        <h2>Some User</h2>
+                        <div class="likesnumber">
+                            <h4 id="change-number">1</h4>
+                            <h4>like(s)</h4>
+                        </div>
+                        <button class="likesbutton" onclick=like(this)>like</button>
                     </div>
-                    <button class="likesbutton" onclick=like(this)>like</button>
-                </div>
-                <div class="subdown">
-                    <h4>This is some filler text, it can say anything we like</h4>
+                    <div class="subdown">
+                        <h4>This is some filler text, it can say anything we like</h4>
+                    </div>
                 </div>
             </div>
+            <div class="RightSide"></div>
         </div>
-        <div class="RightSide">
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Profile Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <div class="header">
-        <div class="nav">
-            <h1 class="nav-title">Profile</h1>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#" class="active">My Profile</a></li>
-                <li><a href="#">Find Connections</a></li>
-            </ul>
-            <button class="btn">Sign Out</button></li>
+    <head>
+        <meta charset="UTF-8">
+        <title>Profile Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="nav">
+                <h1 class="nav-title">Profile</h1>
+                <ul class="nav-links">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="active">My Profile</a>
+                    </li>
+                    <li>
+                        <a href="#">Find Connections</a>
+                    </li>
+                </ul>
+                <button class="btn">Sign Out</button>
+            </li>
         </div>
     </div>
     <div class="maincontent">
@@ -70,13 +75,17 @@
                     <div class="line" id="line1">
                         <img src="images/todd-s.jpg" alt="person">
                         <p>Todd S</p>
-                        <img src="icons/accept-circle.png" alt="accept-circle" onclick="accept1(this)">
+                        <img src="icons/accept-circle.png"
+                             alt="accept-circle"
+                             onclick="accept1(this)">
                         <img src="icons/close-circle.png" alt="close-circle" onclick="deny1(this)">
                     </div>
                     <div class="line" id="line2">
                         <img src="images/phil-s.jpg" alt="person">
                         <p>Phil S</p>
-                        <img src="icons/accept-circle.png" alt="accept-circle" onclick="accept2(this)">
+                        <img src="icons/accept-circle.png"
+                             alt="accept-circle"
+                             onclick="accept2(this)">
                         <img src="icons/close-circle.png" alt="close-circle" onclick="deny2(this)">
                     </div>
                 </div>
@@ -114,5 +123,4 @@
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>

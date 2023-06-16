@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Playground</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Playground</title>
+        <style>
         body {
             text-align: center;
         }
@@ -18,16 +17,12 @@
             border: 4px solid black;
             margin: 20px;
         }
-    </style>
-</head>
-
-<body>
-    <h1>Welcome!</h1>
-    <div class="row">
-        {% for i in range(0,times) %}
-        <div class="col" style="--color: {{ color }}"></div>
-        {%endfor%}
-    </div>
-</body>
-
+        </style>
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+        <div class="row">
+            {% for i in range(0,times) %}<div class="col" style="--color: {{ color }}"></div>{% endfor %}
+        </div>
+    </body>
 </html>

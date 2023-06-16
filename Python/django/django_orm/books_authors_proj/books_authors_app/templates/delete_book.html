@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Delete Book</title>
-    {% load static %}
-    <!-- linking a css style sheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <h1>Delete Book</h1>
-    <p>Are you sure you want to delete "{{ book.title }}"?</p>
-    <form method="post" action="{% url 'delete-book' book_id=book.id %}">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <a href="{% url 'books' %}">Cancel</a>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Delete Book</title>
+        {% load static %}
+        <!-- linking a css style sheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h1>Delete Book</h1>
+        <p>Are you sure you want to delete "{{ book.title }}"?</p>
+        <form method="post" action="{% url 'delete-book' book_id=book.id %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+        <a href="{% url 'books' %}">Cancel</a>
+    </body>
 </html>

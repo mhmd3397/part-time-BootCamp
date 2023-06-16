@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dojos and Ninjas</title>
-    {% load static %}
-    <!-- linking a css style sheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"></head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dojos and Ninjas</title>
+        {% load static %}
+        <!-- linking a css style sheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
 </head>
 <body>
     <h1>Dojos & Ninjas</h1>
-
-<!-- Displaying Dojos and Ninjas -->
-<table>
-    <thead>
-        <tr>
-            <th>Dojo Name</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Description</th>
-            <th>Ninjas</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for dojo in dojos %}
-        <tr>
-            <td>{{ dojo.name }}</td>
-            <td>{{ dojo.city }}</td>
-            <td>{{ dojo.state }}</td>
-            <td>{{ dojo.desc }}</td>
-            <td>
-                <ul>
-                    {% for ninja in dojo.ninjas.all %}
-                    <li>
-                        {{ ninja.first_name }} {{ ninja.last_name }}
-                        <form action="{% url 'delete-ninja' ninja.id %}" method="post" class="delete-form">
+    <!-- Displaying Dojos and Ninjas -->
+    <table>
+        <thead>
+            <tr>
+                <th>Dojo Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Description</th>
+                <th>Ninjas</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dojo in dojos %}
+                <tr>
+                    <td>{{ dojo.name }}</td>
+                    <td>{{ dojo.city }}</td>
+                    <td>{{ dojo.state }}</td>
+                    <td>{{ dojo.desc }}</td>
+                    <td>
+                        <ul>
+                            {% for ninja in dojo.ninjas.all %}
+                                <li>
+                                    {{ ninja.first_name }} {{ ninja.last_name }}
+                                    <form action="{% url 'delete-ninja' ninja.id %}"
+                                          method="post"
+                                          class="delete-form">
+                                        {% csrf_token %}
+                                        <input type="submit" value="Delete">
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <form action="{% url 'delete-dojo' dojo.id %}"
+                              method="post"
+                              class="delete-form">
                             {% csrf_token %}
                             <input type="submit" value="Delete">
                         </form>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </td>
-            <td>
-                <form action="{% url 'delete-dojo' dojo.id %}" method="post" class="delete-form">
-                    {% csrf_token %}
-                    <input type="submit" value="Delete">
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <!-- Create Dojo Form -->
     <h2>Create a New Dojo</h2>
     <form action="{% url 'create-dojo' %}" method="POST">
@@ -69,7 +71,6 @@
         <textarea id="dojo-desc" name="desc"></textarea>
         <input type="submit" value="Create Dojo">
     </form>
-
     <!-- Create Ninja Form -->
     <h2>Create a New Ninja</h2>
     <form action="{% url 'create-ninja' %}" method="POST">
@@ -80,13 +81,10 @@
         <input type="text" id="ninja-last-name" name="last_name" required>
         <label for="ninja-dojo">Dojo:</label>
         <select id="ninja-dojo" name="dojo" required>
-            {% for dojo in dojos %}
-            <option value="{{ dojo.id }}">{{ dojo.name }}</option>
-            {% endfor %}
+            {% for dojo in dojos %}<option value="{{ dojo.id }}">{{ dojo.name }}</option>{% endfor %}
         </select>
         <input type="submit" value="Create Ninja">
     </form>
-
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

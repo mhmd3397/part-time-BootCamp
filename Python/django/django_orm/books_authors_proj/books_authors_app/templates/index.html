@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Books and Authors</title>
-    {% load static %}
-    <!-- linking a css style sheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <header>
-        <h1>Welcome to the Books and Authors App</h1>
-    </header>
-    
-    <main>
-        <section id="books-section">
-            <h2>Books</h2>
-            <p><a href="{% url 'books' %}">View All Books</a> | <a href="{% url 'create-book' %}">Create New Book</a></p>
-        </section>
-        
-        <section id="authors-section">
-            <h2>Authors</h2>
-            <p><a href="{% url 'authors' %}">View All Authors</a> | <a href="{% url 'create-author' %}">Create New Author</a></p>
-        </section>
-        
-        <p>Use the navigation links to explore books and authors.</p>
-        
-        <a class="back-button" href="{% url 'index' %}">Back to Home</a>
-    </main>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Books and Authors</title>
+        {% load static %}
+        <!-- linking a css style sheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to the Books and Authors App</h1>
+        </header>
+        <main>
+            <section id="books-section">
+                <h2>Books</h2>
+                <p>
+                    <a href="{% url 'books' %}">View All Books</a> | <a href="{% url 'create-book' %}">Create New Book</a>
+                </p>
+            </section>
+            <section id="authors-section">
+                <h2>Authors</h2>
+                <p>
+                    <a href="{% url 'authors' %}">View All Authors</a> | <a href="{% url 'create-author' %}">Create New Author</a>
+                </p>
+            </section>
+            <p>Use the navigation links to explore books and authors.</p>
+            <a class="back-button" href="{% url 'index' %}">Back to Home</a>
+        </main>
+    </body>
 </html>
