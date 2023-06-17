@@ -68,7 +68,7 @@ def create_author(request):
         return redirect('authors')
     else:
         books = Book.objects.all()
-        return render(request, 'create_author.html', {'books': books})
+        return render(request, 'create_author.html', {'books': books}, author)
 
 
 def view_author(request, author_id):
