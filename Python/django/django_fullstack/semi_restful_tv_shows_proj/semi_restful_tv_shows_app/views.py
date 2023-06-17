@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Tv_shows
+from django.contrib import messages
 # Create your views here.
 
 
@@ -26,9 +27,24 @@ def create(request):
         network = request.POST.get('network')
         release_date = request.POST.get('release_date')
         desc = request.POST.get('desc')
+
+        errors = Tv_shows.objects.basic_validator(request.POST)
+        if errors:
+            # If there are errors, render the form again with the errors
+            for key, value in errors.items():
+                messages.error(request, value)
+            context = {
+                'title': title,
+                'network': network,
+                'release_date': release_date,
+                'desc': desc
+            }
+            return render(request, 'new_show.html', context)
+
         new_show = Tv_shows.objects.create(
             title=title, network=network, release_date=release_date, desc=desc)
         return redirect('tv_show', tv_show_id=new_show.id)
+
     return redirect('create')
 
 
@@ -51,13 +67,33 @@ def edit(request, tv_show_id):
 
 def update(request, tv_show_id):
     if request.method == 'POST':
+        title = request.POST.get('title')
+        network = request.POST.get('network')
+        release_date = request.POST.get('release_date')
+        desc = request.POST.get('desc')
+
+        errors = Tv_shows.objects.basic_validator(request.POST)
+        if errors:
+            # If there are errors, render the form again with the errors
+            for key, value in errors.items():
+                messages.error(request, value)
+            context = {
+                'tv_show': Tv_shows.objects.get(id=tv_show_id),
+                'title': title,
+                'network': network,
+                'release_date': release_date,
+                'desc': desc
+            }
+            return render(request, 'edit.html', context)
+
         Tv_shows.objects.filter(id=tv_show_id).update(
-            title=request.POST.get('title'),
-            network=request.POST.get('network'),
-            release_date=request.POST.get('release_date'),
-            desc=request.POST.get('desc')
+            title=title,
+            network=network,
+            release_date=release_date,
+            desc=desc
         )
         return redirect('tv_show', tv_show_id=tv_show_id)
+
     return redirect('edit', tv_show_id=tv_show_id)
 
 
