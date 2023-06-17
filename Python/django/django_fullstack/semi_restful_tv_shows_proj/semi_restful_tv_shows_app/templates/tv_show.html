@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=80vw, initial-scale=1.0">
+    <title>Read (one)</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tv Show {{ tv_show.id }}</h1>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Title: {{ tv_show.title }}</h4>
+                <h4>Network: {{ tv_show.network }}</h4>
+                <h4>Release Date: {{ tv_show.release_date }}</h4>
+            </div>
+            <div class="col-md-6">
+                <h4>Description: {{ tv_show.desc }}</h4>
+            </div>
+        </div>
+        <br><br><br>
+        <h4>Last Updated: {{ tv_show.updated_at }}</h4>
+        <br>
+        <a href="{% url 'edit' tv_show_id=tv_show.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'destroy' tv_show_id=tv_show.id %}" class="btn btn-danger">Delete</a>
+        <br><br>
+        <a href="/" class="btn btn-secondary">Home Page</a>
+    </div>
+</body>
+
+</html>
