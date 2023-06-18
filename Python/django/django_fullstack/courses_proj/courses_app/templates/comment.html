@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=80vw, initial-scale=1.0">
+    <title>Comments for {{ course.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Comments for {{ course.name }}</h1>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Name: {{ course.name }}</h4>
+                <h4>Description: {{ course.description.description }}</h4>
+            </div>
+            <div class="col-md-6">
+                <h4>Created At: {{ course.created_at }}</h4>
+                <h4>Updated At: {{ course.updated_at }}</h4>
+            </div>
+        </div>
+        <br>
+        <!-- Add comment form -->
+        <form method="POST" action="{% url 'comment' course_id=course.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="comment_text">Add a comment:</label>
+                <textarea class="form-control" id="comment_text" name="comment_text" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+        </form>
+        <!-- Display existing comments -->
+        <br>
+        {% if comments %}
+        <ul>
+            {% for comment in comments %}
+            <li>
+                <div class="comment">
+                    <p>{{ comment.text }}</p>
+                    <p>Posted on {{ comment.created_at }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No comments yet.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

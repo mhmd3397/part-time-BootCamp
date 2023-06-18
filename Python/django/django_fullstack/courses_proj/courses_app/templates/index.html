@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=80vw, initial-scale=1.0">
+    <title>Add a new course</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add a new course</h1>
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Name</label>
+                <input type="text" class="form-control" id="title" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea class="form-control" id="desc" rows="3" name="desc" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+            <br><br>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+        </form>
+    </div>
+    <div class="container">
+        <h1>Courses</h1>
+        {% if courses %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.description.description }}</td>
+                    <td>{{ course.created_at }}</td>
+                    <td>
+                        <a href="{% url 'comment' course_id=course.id %}">Comment</a> |
+                        <a href="{% url 'destroy' course_id=course.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No courses available.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

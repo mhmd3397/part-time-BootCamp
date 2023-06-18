@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=80vw, initial-scale=1.0">
+    <title>Confirm Delete</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Confirm Delete</h1><br>
+        <h3>Are you sure you want to delete "{{ course.name }}"?</h3>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Name:</h4>
+                <p>{{ course.name }}</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Description:</h4>
+                <p>{{ course.description.description }}</p>
+            </div>
+        </div><br>
+        <form method="POST" action="{% url 'delete' course_id=course.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">No</a>
+        </form>
+    </div>
+</body>
+
+</html>
