@@ -56,6 +56,7 @@ def tv_show(request, tv_show_id):
 def edit(request, tv_show_id):
     tv_show = Tv_shows.objects.get(id=tv_show_id)
     context = {
+        'id': tv_show.id,
         'tv_show': tv_show,
         'title': tv_show.title,
         'network': tv_show.network,
@@ -67,7 +68,7 @@ def edit(request, tv_show_id):
 
 def update(request, tv_show_id):
     if request.method == 'POST':
-        title = request.POST.get('title')
+        title = request.POST.get('title1')
         network = request.POST.get('network')
         release_date = request.POST.get('release_date')
         desc = request.POST.get('desc')
@@ -77,14 +78,7 @@ def update(request, tv_show_id):
             # If there are errors, render the form again with the errors
             for key, value in errors.items():
                 messages.error(request, value)
-            context = {
-                'tv_show': Tv_shows.objects.get(id=tv_show_id),
-                'title': title,
-                'network': network,
-                'release_date': release_date,
-                'desc': desc
-            }
-            return render(request, 'edit.html', context)
+            return redirect('edit', tv_show_id=tv_show_id)
 
         Tv_shows.objects.filter(id=tv_show_id).update(
             title=title,

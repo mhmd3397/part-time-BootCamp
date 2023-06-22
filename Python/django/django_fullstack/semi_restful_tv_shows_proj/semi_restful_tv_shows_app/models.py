@@ -8,17 +8,34 @@ class Tv_showsManager(models.Manager):
         errors = {}
         # Validate title
         title = postData.get('title')
+        title1 = postData.get('title1')
+        if not title1:
+            if not title:
+                errors['title'] = "Title is required gasioaspo."
+            elif len(title) < 2:
+                errors["title"] = "Tv Show Title should be at least 2 characters"
+            else:
+                # Check if a TV show with the same title already exists
+                existing_tv_show = Tv_shows.objects.filter(
+                    title__iexact=title).first()
+                if existing_tv_show:
+                    errors['title'] = "A TV show with this title already exists."
+        # Validate title for update
+        id = postData.get('id')
         if not title:
-            errors['title'] = "Title is required."
-        elif len(title) < 2:
-            errors["title"] = "Tv Show Title should be at least 2 characters"
-        else:
-            # Check if a TV show with the same title already exists
-            existing_tv_show = Tv_shows.objects.filter(
-                title__iexact=title).first()
-            if existing_tv_show:
-                errors['title'] = "A TV show with this title already exists."
-
+            if not title1:
+                errors['title1'] = "Title is required."
+            elif len(title1) < 2:
+                errors["title1"] = "Tv Show Title should be at least 2 characters"
+            else:
+                existing_tv_show1 = Tv_shows.objects.get(
+                    id=id)
+                # Check if a TV show with the same title already exists
+                existing_tv_show = Tv_shows.objects.filter(
+                    title__iexact=title1).first()
+                if existing_tv_show:
+                    if existing_tv_show1.id != existing_tv_show.id:
+                        errors['title'] = "A TV show with this title already exists."
         # Validate network
         network = postData.get('network')
         if not network:
