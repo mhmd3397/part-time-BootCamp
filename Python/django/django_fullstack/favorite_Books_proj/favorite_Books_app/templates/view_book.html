@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">My Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                {% if user %}
+                <form class="d-flex" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <div class="form-control me-2">{{ message }}</div>
+                    <button class="btn btn-outline-success" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6">
+                {% csrf_token %}
+                <div class="form-group">
+                    <br>
+                    <h1>View Book</h1>
+                    <dl class="row">
+                        <dt class="col-sm-3">Title</dt>
+                        <dd class="col-sm-9">Title</dd>
+                        <dt class="col-sm-3">Added by:</dt>
+                        <dd class="col-sm-9">user who added</dd>
+                        <dt class="col-sm-3">Added on:</dt>
+                        <dd class="col-sm-9">created_at</dd>
+                        <dt class="col-sm-3">Last updated on:</dt>
+                        <dd class="col-sm-9">Updated_at</dd>
+                        <dt class="col-sm-3">Discription</dt>
+                        <dd class="col-sm-9">Discription</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                <br><br>
+                <h1>Users Who Like This Book:</h1>
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Cras justo odio
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Cras justo odio
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Cras justo odio
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
