@@ -69,7 +69,7 @@
                 <h1>All Books:</h1>
                 <ol class="list-group list-group-numbered">
                     {% for book in books %}
-                    <input type="hidden" name="book_id", value="book.id">
+                    <input type="hidden" name="book_id" , value="book.id">
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             <div class="fw-bold">
@@ -82,9 +82,9 @@
                             <span class="badge bg-primary rounded-pill">
                                 {% if existing_fav %}
                                 <a href="{% url 'add_un_favorite' book.id %}">Unfavorite</a>
-                            {% else %}
+                                {% else %}
                                 <a href="{% url 'add_un_favorite' book.id %}">Add to Favorite</a>
-                            {% endif %}
+                                {% endif %}
                             </span>
                         </form>
                     </li>
