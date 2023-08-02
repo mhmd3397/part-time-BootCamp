@@ -22,6 +22,36 @@ function rotateArr(array, shiftBy) {
         p++;
     }
 
-console.log(array)
+    console.log(array)
 }
 rotateArr([1, 2, 3, 4, 5, 6, 7, 8], 6)
+
+
+
+function filterRangeV2(arr, minVal, maxVal) {
+    var nextInd = 0; // Index where the next array value that's from min to max (inclusively) will go
+    // Loop through the array
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] >= minVal && arr[i] <= maxVal) {
+            arr[nextInd] = arr[i];
+            nextInd++; // Increment index for next valid value found
+        }
+    }
+    arr.length = nextInd; // Chop off excess values
+}
+
+
+
+// Concat
+
+function arrConcat(array1, array2) {
+    new_arr = []
+    for (i = 0; i < array1.length; i++) {
+        new_arr[new_arr.length] = array1[i]
+    }
+    for (i = 0; i < array2.length; i++) {
+        new_arr[new_arr.length] = array2[i]
+    }
+    console.log(new_arr)
+}
+arrConcat(['a', 'b'], [1, 2])
